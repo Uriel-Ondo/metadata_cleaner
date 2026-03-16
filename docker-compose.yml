@@ -1,4 +1,3 @@
-
 services:
   cleaner:
     build: .
@@ -7,3 +6,6 @@ services:
     volumes:
       - ./uploads:/app/uploads
       - ./cleaned:/app/cleaned
+    command: >
+      sh -c "mkdir -p /app/uploads /app/cleaned &&
+             python app.py"
