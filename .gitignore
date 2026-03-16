@@ -6,5 +6,3 @@ __pycache__/
 *.tmp
 *.log
 venv/
-uploads/*
-cleaned/*
