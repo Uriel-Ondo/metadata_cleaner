@@ -34,7 +34,7 @@ Compatible PWA (installable sur desktop et mobile).
 
 1. Cloner le projet :
    ```bash
-   git clone https://github.com/toncompte/metadata_cleaner.git
+   git clone https://github.com/Uriel-Ondo/metadata_cleaner.git
    cd metadata_cleaner
    ```
 
