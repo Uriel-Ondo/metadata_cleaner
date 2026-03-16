@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résultat du nettoyage</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fa-regular fa-circle-check" style="color: #10b981; margin-right: 10px;"></i>Nettoyage réussi !</h1>
+        <p>Le fichier <strong>{{ filename }}</strong> a été nettoyé de ses métadonnées.</p>
+        <a href="{{ url_for('download', filename=filename) }}">
+            <i class="fa-solid fa-download"></i> Télécharger le fichier nettoyé
+        </a>
+        <br>
+        <a href="{{ url_for('index') }}" class="back-link">
+            <i class="fa-solid fa-arrow-left"></i> Retour à l'accueil
+        </a>
+    </div>
+</body>
+</html>

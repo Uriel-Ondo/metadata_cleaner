@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Nettoyeur de métadonnées</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
+    <meta name="theme-color" content="#2563eb">
+    <!-- Font Awesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Google Fonts Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fa-solid fa-broom" style="margin-right: 10px; background: none; -webkit-text-fill-color: currentColor;"></i>Nettoyeur de métadonnées</h1>
+        <p>Sélectionnez un fichier (image, PDF, document Office, audio/vidéo) pour supprimer ses métadonnées.</p>
+        
+        <form method="POST" enctype="multipart/form-data" id="upload-form">
+            <div class="file-input-wrapper">
+                <i class="fa-solid fa-cloud-upload-alt"></i>
+                <span>Cliquez ou glissez-déposez un fichier ici</span>
+                <span class="file-name" id="file-name"></span>
+                <input type="file" name="file" id="file-input" required>
+            </div>
+            <button type="submit" id="submit-btn">
+                <i class="fa-solid fa-eraser"></i> Nettoyer maintenant
+            </button>
+        </form>
+        <!-- Zone d'affichage du chargement -->
+        <div id="loading" class="loading-indicator" style="display: none;">
+            <div class="spinner"></div>
+            <span>Nettoyage en cours...</span>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+    if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("{{ url_for('static', filename='sw.js') }}")
+        .then(() => console.log("Service Worker enregistré"))
+        .catch(err => console.error("Erreur SW:", err));
+    }
+    </script>
+</body>
+</html>

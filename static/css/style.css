@@ -1,0 +1,253 @@
+/* style.css - Design professionnel moderne */
+
+/* Import de la police Inter depuis Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,500;14..32,600;14..32,700&display=swap');
+
+/* Variables CSS pour une personnalisation facile */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1d4ed8;
+    --primary-light: #3b82f6;
+    --secondary: #64748b;
+    --success: #10b981;
+    --background: #f8fafc;
+    --surface: #ffffff;
+    --text: #0f172a;
+    --text-light: #475569;
+    --border: #e2e8f0;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.1), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+    --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --radius: 16px;
+}
+
+/* Réinitialisation de base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #f1f5f9 0%, #e6f0fa 100%);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--text);
+}
+
+.container {
+    max-width: 580px;
+    width: 100%;
+    background: var(--surface);
+    backdrop-filter: blur(10px);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+    padding: 40px 32px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.container:hover {
+    box-shadow: var(--shadow-lg), 0 20px 25px -5px rgba(0,0,0,0.1);
+}
+
+h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+p {
+    color: var(--text-light);
+    margin-bottom: 28px;
+    font-size: 1rem;
+    line-height: 1.6;
+}
+
+/* Formulaire */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Zone de fichier personnalisée */
+.file-input-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 20px;
+    border: 2px dashed var(--border);
+    border-radius: 12px;
+    background: #f9fbfd;
+    transition: border-color 0.2s, background-color 0.2s;
+    cursor: pointer;
+}
+
+.file-input-wrapper:hover {
+    border-color: var(--primary);
+    background: #f0f7ff;
+}
+
+.file-input-wrapper i {
+    font-size: 48px;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.file-input-wrapper span {
+    font-size: 0.95rem;
+    color: var(--text-light);
+}
+
+.file-input-wrapper .file-name {
+    margin-top: 8px;
+    font-weight: 500;
+    color: var(--primary);
+    word-break: break-word;
+    text-align: center;
+    max-width: 100%;
+}
+
+/* Cache l'input original */
+input[type="file"] {
+    position: absolute;
+    left: 0;
+    top: 0;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+/* Bouton principal */
+button {
+    background: var(--primary);
+    color: white;
+    border: none;
+    padding: 16px 24px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    letter-spacing: 0.3px;
+}
+
+button i {
+    font-size: 1.2rem;
+}
+
+button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+button:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-sm);
+}
+
+button:disabled {
+    background: var(--secondary);
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* État de chargement (spinner) */
+.loading-indicator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 16px;
+    color: var(--primary);
+    font-weight: 500;
+}
+
+.spinner {
+    width: 24px;
+    height: 24px;
+    border: 3px solid rgba(37, 99, 235, 0.2);
+    border-radius: 50%;
+    border-top-color: var(--primary);
+    animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* Liens dans la page de résultat */
+a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 20px;
+    background: #f0f7ff;
+    border-radius: 10px;
+    transition: all 0.2s;
+    margin: 8px 0;
+}
+
+a:hover {
+    background: var(--primary);
+    color: white;
+    transform: translateX(4px);
+}
+
+a i {
+    font-size: 1.1rem;
+}
+
+/* Bouton retour discret */
+.back-link {
+    background: transparent;
+    color: var(--text-light);
+    font-weight: normal;
+    padding: 8px 12px;
+    margin-top: 16px;
+}
+
+.back-link:hover {
+    background: var(--border);
+    color: var(--text);
+    transform: none;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .container {
+        padding: 28px 20px;
+    }
+    h1 {
+        font-size: 1.75rem;
+    }
+    .file-input-wrapper {
+        padding: 24px 16px;
+    }
+    button {
+        padding: 14px 20px;
+    }
+}

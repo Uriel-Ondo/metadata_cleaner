@@ -1,0 +1,6 @@
+Flask
+Pillow
+pikepdf
+python-docx
+openpyxl
+mutagen
